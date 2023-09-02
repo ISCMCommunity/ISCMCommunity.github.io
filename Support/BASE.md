@@ -41,10 +41,28 @@ document.oncut = function(event) { return false; }
 document.onpaste = function(event) { return false; }
 </script>
 
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+#version {
+	font-size : 28%;
+	color : #606060 ;
+	font-family:'IBM Plex Mono', monospace ;
+	position: absolute ;
+	bottom : -10% ; 
+	text-decoration : underline ;
+	display : inline-block; 
+}
+
+</style>
+
 </head>
 <body>
 
 <body ondragstart="return false;" onselectstart="return false;" style="-moz-user-select:none;-webkit-user-select:none;user-select:none;">
+
+<p id="version">Version 1.0</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
 
 </body>
 </html> 
