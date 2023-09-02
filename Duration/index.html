@@ -1,6 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 <head>
+
+<meta charset="utf-8">
 
 <title>ISCM Duration</title>
 	
@@ -23,8 +26,9 @@
 <meta name="theme-color" content="#ffffff">
 	
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
-		  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+  		  	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap');
+		  	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 
         body { 
             display: flex; 
@@ -34,28 +38,30 @@
             height: 100vh; 
             background-color: #f6f6f6;
         }
-        
-        #demo {
+
+    #iscm {
+       font-size : 4.6vh ;
+	    color : #404040 ;
+	    font-family:'Nanum Myeongjo', monospace ;
+	    position: absolute ;
+	    top:4.8vh; 
+	
+	} 
+        #duration {
  	     font-size:12vw;
- 	     text-shadow:
- 	      -0.3vw -0.3vw 0 orange,
- 	       0.3vw -0.3vw 0 orange,
- 	       -0.3vw 0.3vw 0 orange,
- 	       0.3vw 0.3vw 0 orange;
- 	    font-weight:bold ;
-		color:black;
- 	    font-family:'Roboto Condensed', sans-serif;
+ 	     font-weight:bold ;
+		  color:black;
+ 	     font-family:'Roboto Slab', sans-serif;
 
 	}
         #today {
 	    font-size:3vh;
-	   color:#808080;
-	   font-family:'Roboto Condensed', sans-serif;
-           position:relative;
-           top:-8vh;
+	    color:#808080;
+	    font-family:'Roboto Slab', sans-serif;
+       position:relative;
+       top:-4.8vh;
 
 	}
-
 	#version {
        font-size : 0.8vh ;
 	    color : #606060 ;
@@ -65,13 +71,36 @@
 	    text-decoration : underline ;
 	    display : inline-block; 
 	}
+	
     </style>
 </head>
 <body>
 
-<p id="demo"></p> <!-- D-day 표시 -->
+<svg id="duration" xmlns="http://www.w3.org/2000/svg">
+  <!-- D-day 텍스트 -->
+  <defs>
+    <filter id="outline">
+      <feMorphology in="SourceAlpha" result="DILATED" operator="dilate" radius="2"/>
+      <feFlood flood-color="orange" flood-opacity="1" result="COLOR"/>
+      <feComposite in ="COLOR" in2 ="DILATED" operator ="in" result ="OUTLINE"/>
+      <feMerge>
+        <feMergeNode in = "OUTLINE"/>
+        <feMergeNode in = "SourceGraphic"/>  
+      </feMerge>  
+    </filter>  
+  </defs>  
+
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+    style="
+      filter:url(#outline);
+      fill:black;"
+   id='countdown'></text> 
+
+</svg>
+
+<p id="iscm">{ISCM}™</p> <!-- 버전 정보 -->
 <p id="today"></p> <!-- 오늘의 날짜 -->
-<p id="version">Version 1.1</p> <!-- 버전 정보 -->
+<p id="version">Version 1.2</p> <!-- 버전 정보 -->
 
 <script>
 // 카운트다운 날짜 설정
@@ -96,7 +125,7 @@ var countdownfunction = setInterval(function() {
     var distance = now - countDownDate;
     var days = Math.floor(distance / (1000*60 *60 *24));
     
-      document.getElementById("demo").innerHTML ="D + " + days ;  
+      document.getElementById("countdown").innerHTML ="D - " + days ;  
             
 },1000); 
 
