@@ -28,8 +28,23 @@ Title&Fabicon
 <meta name="msapplication-TileImage" content="https://ISCMCommunity.github.io/Support/fabicons/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 
+<script type='text/javascript'>
+// Disable right click context menu
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// Disable dragging (prevents user from selecting and dragging text)
+document.addEventListener('dragstart', event => event.preventDefault());
+
+// Disable copy, cut, paste
+document.oncopy = function(event) { return false; }
+document.oncut = function(event) { return false; }
+document.onpaste = function(event) { return false; }
+</script>
+
 </head>
 <body>
+
+<body ondragstart="return false;" onselectstart="return false;" style="-moz-user-select:none;-webkit-user-select:none;user-select:none;">
 
 </body>
 </html> 
