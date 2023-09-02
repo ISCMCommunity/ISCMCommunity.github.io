@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>ISCM Duration</title>
+	
+<link rel="apple-touch-icon" sizes="57x57" href="https://SWK0507.github.io/Assets/fabicons.ico/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://SWK0507.github.io/Assets/fabicons.ico/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://SWK0507.github.io/Assets/fabicons.ico/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://SWK0507.github.io/Assets/fabicons.ico/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://SWK0507.github.io/Assets/fabicons.ico/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://SWK0507.github.io/Assets/fabicons.ico/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://SWK0507.github.io/Assets/fabicons.ico/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://SWK0507.github.io/Assets/fabicons.ico/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://SWK0507.github.io/Assets/fabicons.ico/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://SWK0507.github.io/Assets/fabicons.ico/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://SWK0507.github.io/Assets/fabicons.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://SWK0507.github.io/Assets/fabicons.ico/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://SWK0507.github.io/Assets/fabicons.ico/favicon-16x16.png">
+<link rel="manifest" href="https://SWK0507.github.io/Assets/fabicons.ico/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://SWK0507.github.io/Assets/fabicons.ico/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+	
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
+        body { 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background-color: #f5f5f5;
+        }
+        
+        #demo {
+ 	    font-size:6.8em;
+ 	    text-shadow:-2px 0 orange, 0 2px orange, 2px 0 orange, 0 -2px orange;
+ 	    font-weight:bold ;
+		color:black;
+ 	    font-family:'Roboto Condensed', sans-serif;
+
+	}
+        #today {
+	   font-size:2.4em;
+	   color:#808080;
+	   font-family:'Roboto Condensed', sans-serif;
+           position:relative;
+           top:-10px;}
+    </style>
+</head>
+<body>
+
+<p id="demo"></p> <!-- D-day 표시 -->
+<p id="today"></p> <!-- 오늘의 날짜 -->
+
+<script>
+// 카운트다운 날짜 설정
+var countDownDate = new Date("May14,2022").getTime();
+
+// 매 초마다 카운트다운 업데이트 함수 실행
+var countdownfunction = setInterval(function() {
+
+   // 현재 날짜와 시간 가져오기
+   var now = new Date().getTime();
+   
+   // 오늘의 날짜를 한국식 포맷(YYYY/MM/DD)으로 출력하기
+   var year = new Date().getFullYear();
+   var month = new Date().getMonth() + 1 ; // JavaScript에서 월은 January부터 시작해서 zero-based.
+   var day = new Date().getDate();
+   
+   document.getElementById("today").innerHTML ="Today:" + year + "/" + (month <10 ? "0" : "") + month + "/" +(day <10 ? "0" : "")+ day;
+
+    
+   
+   // 현재 시간과 카운트다운 날짜 사이의 차이 계산 후 D-day 표시하기
+    var distance = now - countDownDate;
+    var days = Math.floor(distance / (1000*60 *60 *24));
+    
+      document.getElementById("demo").innerHTML ="D - " + days ;  
+            
+},1000); 
+
+</script>
+
+</body>
+</html> 
