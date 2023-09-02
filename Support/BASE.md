@@ -1,6 +1,6 @@
 -BASE-
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
