@@ -100,7 +100,7 @@
 
 <p id="iscm">{ISCM}™</p> <!-- 버전 정보 -->
 <p id="today"></p> <!-- 오늘의 날짜 -->
-<p id="version">Version 1.21</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
+<p id="version">Version 1.22</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
 
 <script>
 // 카운트다운 날짜 설정
@@ -125,7 +125,7 @@ var countdownfunction = setInterval(function() {
     var distance = now - countDownDate;
     var days = Math.floor(distance / (1000*60 *60 *24));
     
-      document.getElementById("countdown").innerHTML ="D - " + days ;  
+      document.getElementById("countdown").innerHTML ="D + " + days ;  
             
 },1000); 
 
