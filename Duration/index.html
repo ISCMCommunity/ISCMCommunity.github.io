@@ -40,34 +40,36 @@
         }
 
     #iscm {
-       font-size : 4.2vh ;
+       font-size : 2.8vh ;
 	    color : #404040 ;
 	    font-family:'Nanum Myeongjo', monospace ;
 	    position: absolute ;
-	    top:4.8vh; 
+	    top:2vh; 
 	
 	} 
         #duration {
- 	     font-size:18.6vh;
+ 	     font-size:18vh;
  	     font-weight:bold ;
 		  color:black;
  	     font-family:'Roboto Slab', sans-serif;
+        position: fixed ;
+	     top : 35px ; 
 
 	}
-        #today {
-	    font-size:2.8vh;
+       #today {
+	    font-size:2.4vh;
 	    color:#808080;
 	    font-family:'Roboto Slab', sans-serif;
-       position:relative;
-       top:-8.4vh;
+	    position: fixed ;
+	    bottom : 40px ; 
 
 	}
-	#version {
+	    #version {
        font-size : 0.8vh ;
 	    color : #606060 ;
 	    font-family:'IBM Plex Mono', monospace ;
 	    position: absolute ;
-	    bottom : 6vh ; 
+	    bottom : 2vh ; 
 	    text-decoration : underline ;
 	    display : inline-block; 
 	}
@@ -100,7 +102,7 @@
 
 <p id="iscm">{ISCM}™ SINCE 2022/05/14</p> <!-- 버전 정보 -->
 <p id="today"></p> <!-- 오늘의 날짜 -->
-<p id="version">Version 1.41</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
+<p id="version">Version 1.43</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
 
 <script>
 // 카운트다운 날짜 설정
