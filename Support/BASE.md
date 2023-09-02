@@ -6,6 +6,8 @@ Title&Fabicon
 <html>
 <head>
 
+<meta charset="utf-8">
+
 <title>ISCM Community</title>
 	
 <link rel="apple-touch-icon" sizes="57x57" href="https://ISCMCommunity.github.io/Support/fabicons/apple-icon-57x57.png">
