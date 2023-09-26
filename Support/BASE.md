@@ -50,7 +50,7 @@ document.onpaste = function(event) { return false; }
 	color : #606060 ;
 	font-family:'IBM Plex Mono', monospace ;
 	position: absolute ;
-	bottom : -10% ; 
+	padding-top : 200%; 	
 	text-decoration : underline ;
 	display : inline-block; 
 }
