@@ -50,6 +50,75 @@ body {
 	 text-align: center;
 }
 
+.button {
+            position: fixed;
+            right: 2%; 
+            bottom: 2%; 
+            width :50px; 
+	        height :50px; 
+	        border-radius :50%; 
+	        background-color:#808080;
+	        color:white ;  
+	        font-size :20px ;  
+	        border:none ;  
+	        text-align:center ;
+			   display:flex ;
+            align-items:center ;
+            justify-content:center ;
+        }
+	.password-popup {
+	    display: none;
+	    position: fixed;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    background-color: #fff;
+        padding :2% ;
+    	box-shadow :0px 0px 1vw rgba(0,0,0,0.1); 
+    	text-align:center; 	
+    	font-family:'Arial', sans-serif;	
+        width :30% ;
+        height :15% ;	
+	}
+	
+	.password-popup input[type="password"] {
+	  margin-bottom :1% ;
+	  padding :1% ;
+	  font-size :1vw ;
+      width :80% ;
+      border-radius:.5%; 
+      border:solid .05vw;
+   }
+   
+   .password-popup button.ok-button{
+       padding-top:.5vw ;
+       padding-bottom:.5vw ;
+       font-size:.8vw ;
+       border-radius:.3vw ;
+       background-color:#4CAF50 ;  
+       color:#fff ;  
+   }
+   
+   .password-popup button.cancel-button{
+       position:absolute;
+	   top:.3vw; right:.3vw; 
+	   font-size:.8 vw ;
+	   background-color:#f44336 ;
+	   color:white ;
+
+   }
+
+   .password-popup button:hover.ok-button {
+        background-color:#45a049 ;
+
+   }
+
+    .password-popup button:hover.cancel-button {
+
+	background-color:#e57373 ;
+
+}
+
 .container {
 	 padding-top: 5%;
     width: 100%;
@@ -93,7 +162,7 @@ li a {
 
 <body ondragstart="return false;" onselectstart="return false;" style="-moz-user-select:none;-webkit-user-select:none;user-select:none;">
 
-<p id="version">Version 1.7</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
+<p id="version">Version 1.8</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
 
 <div class="container">
 <img src="https://ISCMCommunity.github.io/Support/ISCM_LOGO.jpeg" alt="ISCM Logo" style="display: block; margin-left: auto; margin-right: auto; width: 30%;"> <!-- Logo Image -->
@@ -105,6 +174,40 @@ li a {
 <!-- Add more sites as needed -->
 </ul>
 
+<button class="button" onclick="showPasswordPopup('https://velog.velcdn.com/images/hong-brother/post/80c4abb8-28ca-48b7-9480-bc5dabb984c9/image.png')">#</button>
+
+<div id="passwordPopup" class="password-popup">
+    <button class="cancel-button" onclick="hidePasswordPopup()">X</button>
+    <h3>CODE</h3>
+    <input type="password" id="passwordInput">
+    <button class="ok-button" onclick="checkPasswordAndRedirect()">OK</button>
+</div>
+
+<script>
+var redirectLink = "";
+
+function showPasswordPopup(link) {
+	document.getElementById("passwordPopup").style.display = "block";
+	document.getElementById("passwordInput").value = "";
+	redirectLink = link;
+}
+
+function hidePasswordPopup() {
+	document.getElementById("passwordPopup").style.display = "none";
+}
+
+function checkPasswordAndRedirect() {
+	var password = document.getElementById("passwordInput").value;
+
+	if (password === "123+") { // 비밀번호는 '123+'
+		window.location.href = redirectLink;
+	} else {
+	   alert("Failed");
+	   document.getElementById("passwordInput").value = "";
+	   document.getElementById("passwordInput").focus();
+	}
+}
+</script>
 
 </div>
 
