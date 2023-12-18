@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<p>Enter your LOTTO numbers:</p>
+<p>Enter your LOTTO numbers(6):</p>
 <input type="text" id="numbers" value="">
 <button onclick="checkLotto()">Submit</button>
 
@@ -14,7 +14,7 @@
 import {random, randint} from 'random';
 
 function checkLotto() {
-    var numbers = document.getElementById('numbers').value.split(',').map(Number);
+    var numbers = document.getElementById('numbers').value.split(' ').map(Number);
     var lottoNumbers = Array.from({length: 6}, () => randint(1, 45));
     var matchCount = numbers.filter(n => lottoNumbers.includes(n)).length;
     document.getElementById('output').textContent = 'MY NUMBER : ' + numbers + ', LOTTO NUMBER : ' + lottoNumbers + ', MATCHES : ' + matchCount;
