@@ -61,7 +61,12 @@ document.onpaste = function(event) { return false; }
 
 <body ondragstart="return false;" onselectstart="return false;" style="-moz-user-select:none;-webkit-user-select:none;user-select:none;">
 
-        <py-script>
+<py-env>
+- random
+- time
+</py-env>
+	
+<py-script output="out">
 import random as ran
 import time
 
@@ -116,7 +121,7 @@ main()
       </div> 
     </main>
 
-<p id="version">Version 1.1</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
+<p id="version">Version 1.2</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
 
 </body>
 </html> 
