@@ -61,67 +61,15 @@ document.onpaste = function(event) { return false; }
 
 <body ondragstart="return false;" onselectstart="return false;" style="-moz-user-select:none;-webkit-user-select:none;user-select:none;">
 
-<py-env>
-- random
-- time
-</py-env>
+<h2>ISCM LOTTO</h2>
+
+<form action="/" method="post">
+  <label for="my_n">Enter your numbers:</label><br>
+  <input type="text" id="my_n" name="my_n" value=""><br>
+  <input type="submit" value="Submit">
+</form>
 	
-<py-script output="out">
-import random as ran
-import time
-
-list_lotto_num = [ ]
-c = 0
-
-def lotto(my_n) :
-  list_lotto_num = [ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45)]
-  c = 0
-  print("MY NUMBER : ", my_n)
-  print(time.strftime("%Y LOTTO NUMBER : ", time.localtime()), list_lotto_num)
-  for i in range(6) :
-    if list_lotto_num[i] == int(my_n[i]) :
-      c += c
-      print("O", end = " ")
-    else :
-      print("X", end = " ")
-  if c == 6 :
-    print("WOW!!!!!")
-  print("\n\n")
-
-def main() :
-  while True :
-    my_n = input("LOTTO(6) : ")
-    if my_n.lower() == "@random" or my_n.lower() == "@r" or my_n.lower() == "@ran" :
-      my_n = [ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45)]
-      print()
-      lotto(my_n)
-      main()
-    else : 
-      my_n = my_n.split()
-      while len(my_n) != 6 or int(my_n[0]) > 45 or int(my_n[0]) < 1 or int(my_n[1]) > 45 or int(my_n[1]) < 1 or int(my_n[2]) > 45 or int(my_n[2]) < 1 or int(my_n[3]) > 45 or int(my_n[3]) < 1 or int(my_n[4]) > 45 or int(my_n[4]) < 1 or int(my_n[5]) > 45 or int(my_n[5]) < 1 :
-        my_n = input("\nTry again(6) : ")
-        if my_n.lower() == "@random" or my_n.lower() == "@r" or my_n.lower() == "@ran" :
-          my_n = [ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45)]
-          print()
-          lotto(my_n)
-          main()
-        else :
-          my_n = my_n.split()
-    print()
-    lotto(my_n)
-  
-main()
-        </py-script>
-
-	      <main class = "container">
-      <h1 id = "output_text"></h1>
-      <div>
-        <input id = "input_text" type="text" placeholder="텍스트를 입력하세요">
-        <button id = "add_text" pys-onClick ="function_add_text">Click</button>
-      </div> 
-    </main>
-
-<p id="version">Version 1.2</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
+</form><p id="version">Version 1.3</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
 
 </body>
 </html> 
