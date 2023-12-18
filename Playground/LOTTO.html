@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<title>ISCM Community</title>
+	
+<link rel="apple-touch-icon" sizes="57x57" href="https://ISCMCommunity.github.io/Support/fabicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://ISCMCommunity.github.io/Support/fabicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://ISCMCommunity.github.io/Support/fabicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://ISCMCommunity.github.io/Support/fabicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://ISCMCommunity.github.io/Support/fabicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://ISCMCommunity.github.io/Support/fabicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://ISCMCommunity.github.io/Support/fabicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://ISCMCommunity.github.io/Support/fabicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ISCMCommunity.github.io/Support/fabicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://ISCMCommunity.github.io/Support/fabicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ISCMCommunity.github.io/Support/fabicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://ISCMCommunity.github.io/Support/fabicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ISCMCommunity.github.io/Support/fabicons/favicon-16x16.png">
+<link rel="manifest" href="https://ISCMCommunity.github.io/Support/fabicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://ISCMCommunity.github.io/Support/fabicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<script type='text/javascript'>
+// Disable right click context menu
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// Disable dragging (prevents user from selecting and dragging text)
+document.addEventListener('dragstart', event => event.preventDefault());
+
+// Disable copy, cut, paste
+document.oncopy = function(event) { return false; }
+document.oncut = function(event) { return false; }
+document.onpaste = function(event) { return false; }
+</script>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+#version {
+	font-size : 28%;
+	color : #606060 ;
+	font-family:'IBM Plex Mono', monospace ;
+	position: absolute ;
+	padding-top : 200%; 	
+	text-decoration : underline ;
+	display : inline-block; 
+}
+
+</style>
+
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+</head>
+<body>
+
+<body ondragstart="return false;" onselectstart="return false;" style="-moz-user-select:none;-webkit-user-select:none;user-select:none;">
+
+        <py-script>
+import random as ran
+import time
+
+list_lotto_num = [ ]
+c = 0
+
+def lotto(my_n) :
+  list_lotto_num = [ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45)]
+  c = 0
+  print("MY NUMBER : ", my_n)
+  print(time.strftime("%Y LOTTO NUMBER : ", time.localtime()), list_lotto_num)
+  for i in range(6) :
+    if list_lotto_num[i] == int(my_n[i]) :
+      c += c
+      print("O", end = " ")
+    else :
+      print("X", end = " ")
+  if c == 6 :
+    print("WOW!!!!!")
+  print("\n\n")
+
+def main() :
+  while True :
+    my_n = input("LOTTO(6) : ")
+    if my_n.lower() == "@random" or my_n.lower() == "@r" or my_n.lower() == "@ran" :
+      my_n = [ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45)]
+      print()
+      lotto(my_n)
+      main()
+    else : 
+      my_n = my_n.split()
+      while len(my_n) != 6 or int(my_n[0]) > 45 or int(my_n[0]) < 1 or int(my_n[1]) > 45 or int(my_n[1]) < 1 or int(my_n[2]) > 45 or int(my_n[2]) < 1 or int(my_n[3]) > 45 or int(my_n[3]) < 1 or int(my_n[4]) > 45 or int(my_n[4]) < 1 or int(my_n[5]) > 45 or int(my_n[5]) < 1 :
+        my_n = input("\nTry again(6) : ")
+        if my_n.lower() == "@random" or my_n.lower() == "@r" or my_n.lower() == "@ran" :
+          my_n = [ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45), ran.randint(1,45)]
+          print()
+          lotto(my_n)
+          main()
+        else :
+          my_n = my_n.split()
+    print()
+    lotto(my_n)
+  
+main()
+        </py-script>
+
+<p id="version">Version 1.0</p> <!-- 버전 정보 ... 업데이트 시 버전 수정 -->
+
+</body>
+</html> 
+        
